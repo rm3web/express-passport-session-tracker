@@ -63,82 +63,10 @@ var createMiddlewareMock = function(client, username, session, options, logError
 };
 
 describe('middleware', function() {
-  var req, res;
-
-  describe('error', function() {
-    it('logs errors output from redis', function() {
-      var errorClient = new events.EventEmitter();
-      var middleWareFunc = middleware(errorClient, {});
-      try {
-        errorClient.emit('error', new Error());
-      } catch(e) {
-
-      }
-    });
-    it('logs errors output from redis via console', function() {
-      var errorClient = new events.EventEmitter();
-      var middleWareFunc = middleware(errorClient, {logErrors: true});
-      errorClient.emit('error', new Error());
-    });
-
-    it('logs errors output from redis via funct', function(next) {
-      var errorClient = new events.EventEmitter();
-      var logFunc = function(err) {
-        next();
-      }
-      var middleWareFunc = middleware(errorClient, {logErrors: logFunc});
-      errorClient.emit('error', new Error());
-    });
-  });
-
-  describe('login and logout error', function() {
-    var client;
-    var calledSadd = false;
-    var calledSrem = false;
-    var logCalls = 0;
-    var logFunc = function(err) {
-      logCalls = logCalls + 1;
-    }
-
-    before(function() {
-      client = redis.createClient();
-      client.sadd = function(key, value, next) {
-        calledSadd = true;
-        next(new Error(''));
-      }
-      client.srem = function(key, value, next) {
-        calledSrem = true;
-        next(new Error(''));
-      }
-    });
-
-    step('create mock', function(done) {
-      createMiddlewareMock(client, 'testuser', 'testsession', false, logFunc, function(err, req2, res2) {
-        req = req2;
-        res = res2;
-        done(err);
-      });
-    });
-
-    step('login', function(done) {
-      logInHandler(req, res, function() {
-        calledSadd.should.equal(true);
-        logCalls.should.equal(1);
-        done();
-      });
-    });
-
-    step('logout', function(done) {
-      logOutHandler(req, res, function() {
-        calledSrem.should.equal(true);
-        logCalls.should.equal(2);
-        done();
-      });
-    });
-  });
 
   describe('login', function() {
-    var client
+    var req, res;
+    var client;
     before(function() {
       client = redis.createClient();
     });
@@ -212,4 +140,78 @@ describe('middleware', function() {
 
   });
 
+  describe('error', function() {
+    var req, res;
+    it('logs errors output from redis', function() {
+      var errorClient = new events.EventEmitter();
+      var middleWareFunc = middleware(errorClient, {});
+      try {
+        errorClient.emit('error', new Error());
+      } catch (e) {
+
+      }
+    });
+
+    it('logs errors output from redis via console', function() {
+      var errorClient = new events.EventEmitter();
+      var middleWareFunc = middleware(errorClient, {logErrors: true});
+      errorClient.emit('error', new Error());
+    });
+
+    it('logs errors output from redis via funct', function(next) {
+      var errorClient = new events.EventEmitter();
+      var logFunc = function(err) {
+        next();
+      };
+      var middleWareFunc = middleware(errorClient, {logErrors: logFunc});
+      errorClient.emit('error', new Error());
+    });
+  });
+
+  describe('login and logout error', function() {
+    var req, res;
+    var client;
+    var calledSadd = false;
+    var calledSrem = false;
+    var logCalls = 0;
+    var logFunc = function(err) {
+      logCalls = logCalls + 1;
+    };
+
+    before(function() {
+      client = redis.createClient();
+      client.sadd = function(key, value, next) {
+        calledSadd = true;
+        next(new Error(''));
+      };
+      client.srem = function(key, value, next) {
+        calledSrem = true;
+        next(new Error(''));
+      };
+    });
+
+    step('create mock', function(done) {
+      createMiddlewareMock(client, 'testuser', 'testsession', false, logFunc, function(err, req2, res2) {
+        req = req2;
+        res = res2;
+        done(err);
+      });
+    });
+
+    step('login', function(done) {
+      logInHandler(req, res, function() {
+        calledSadd.should.equal(true);
+        logCalls.should.equal(1);
+        done();
+      });
+    });
+
+    step('logout', function(done) {
+      logOutHandler(req, res, function() {
+        calledSrem.should.equal(true);
+        logCalls.should.equal(2);
+        done();
+      });
+    });
+  });
 });

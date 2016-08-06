@@ -1,5 +1,7 @@
 # Express Passport Session Tracker
 
+[![Build Status](https://travis-ci.org/rm3web/express-passport-session-tracker.svg?branch=master)](https://travis-ci.org/rm3web/express-passport-session-tracker)[![dependencies Status](https://david-dm.org/rm3web/express-passport-session-tracker/status.svg)](https://david-dm.org/rm3web/express-passport-session-tracker)[![devDependencies Status](https://david-dm.org/rm3web/express-passport-session-tracker/dev-status.svg)](https://david-dm.org/rm3web/express-passport-session-tracker?type=dev)
+
 If you follow the recommendations for [The OWASP Session Management Cheat Sheet](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet), you'll notice that there's a suggestion that users be able to observe all of their logged in sessions.
 
 [Express-session](https://www.npmjs.com/package/express-session) only really cares about sessions.  A user's account has potentially nothing to do with a session.
