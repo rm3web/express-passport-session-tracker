@@ -1,0 +1,44 @@
+{
+  "name": "express-passport-session-tracker",
+  "version": "0.0.1",
+  "description": "An Express middleware to track which sessions are associated with which Passport users.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests",
+    "benchmark": "benchmark"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha tests/*.js",
+    "benchmark": "./node_modules/.bin/matcha benchmark/*.js",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha tests/*.js",
+    "travis": "npm run lint && ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha tests/*.js --report lcovonly && codecov",
+    "lint": "./node_modules/.bin/eslint index.js lib tests benchmark"
+  },
+  "keywords": [
+    "express",
+    "passport",
+    "connect",
+    "session"
+  ],
+  "engines": {
+    "node": "4.x || 5.x",
+    "npm": "2.x || 3.x"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "codecov": "^1.0.1",
+    "eslint": "^3.2.2",
+    "eslint-plugin-no-only-tests": "^1.1.0",
+    "eslint-plugin-node": "^2.0.0",
+    "istanbul": "^0.4.4",
+    "matcha": "^0.7.0",
+    "mocha": "^3.0.1",
+    "mocha-steps": "^1.0.1",
+    "node-mocks-http": "^1.5.2",
+    "redis-mock": "^0.10.0"
+  },
+  "dependencies": {}
+}
