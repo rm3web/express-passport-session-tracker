@@ -3,3 +3,12 @@ node_js:
 - '4'
 - '5'
 script: npm run travis
+deploy:
+  provider: npm
+  email: wh-npm@wirewd.com
+  api_key:
+    secure: K4BK8tRt/bB9t5aK/ryqRtSQ8Fg5NrzKYljn/12RFpdu4Ng5l9UBK0jqgW1u1ez07MY6l0nWGVGL5ufm1Fv0yACBX6An6xozGrgjovDrMVEyMY781r4lkvKLSJnUiWS2DFcztgiMnj83vU37Rh7U9zEFqdp+wVOmYvGPbmzomM5MLkvQUPJqfZDNXNX4CPi9yX5qEVuP08QnFUmhm7AU/3i68dQ+fez1UszBgZveQt14CvzZ2CobNXURu/zTUUh5DOMtJWoXl5sad5zJEcZIXYg/HrRl4yqrkMRhlZV9rwsfzYPJ4moDbgX+JTZ1V16Bv/XmTVmmBz21DeMQBYv00xN48ivNTZvFO/VOk4uPu/mwd6b1d/3E8K4iws8ampDTiIAP2QePJPyk53jI7SsyTzeqUz9DZ4OKkxbY35sONcnE8wnqQoZ+wd/im0WHc1QKOLBsTsr45OeuGJRwfvJHM4YvVTmz7iWdDQraxTM1LWmv8Ysntmv/aRhy1SuCM0QNmQLLcpvVqnMG0hOLO6UOI7QunJ7nAywKzFBO7v2eUiqbQikgtZsI7tqhrhM3uU81SsQ0bnE4w00hdbDamL0Mt6fnwvJcSGH2WFiAmHqwxYp0GCGXHZGZHkpz2wrDx8226pMFQI1M1L3AATl7geYf6kDoJ5WE+FWlqSKnLWNy+7M=
+  on:
+    tags: true
+    repo: rm3web/express-passport-session-tracker
+    node: '4'

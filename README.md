@@ -37,14 +37,9 @@ queryForSessions(client, user, function(err, data) {
 });
 ```
 
-## Is it fast?
-
-`npm run benchmark`
-
 ## Contributing
 
 * `npm run lint` to lint
-* `npm run benchmark` to check the benchmarks
 * `npm test` to test
 * `npm run coverage` to check test coverage
 
