@@ -8,6 +8,10 @@
     "test": "tests",
     "benchmark": "benchmark"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rm3web/express-passport-session-tracker.git"
+  },
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/*.js",
     "benchmark": "./node_modules/.bin/matcha benchmark/*.js",
