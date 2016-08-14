@@ -1,6 +1,6 @@
 {
   "name": "express-passport-session-tracker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An Express middleware to track which sessions are associated with which Passport users.",
   "main": "index.js",
   "directories": {
@@ -29,7 +29,7 @@
     "node": "4.x || 5.x",
     "npm": "2.x || 3.x"
   },
-  "author": "",
+  "author": "Wirehead <wh-npm@wirewd.com>",
   "license": "BSD-2-Clause",
   "devDependencies": {
     "chai": "^3.5.0",
