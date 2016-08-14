@@ -54,7 +54,9 @@ var createMiddlewareMock = function(client, username, session, options, logError
   };
 
   req.logOut = function() {
-    delete this.session.passport.user;
+    if (this.session && this.session.passport) {
+      delete this.session.passport.user;
+    }
   };
 
   middleWareFunc(req, res, function() {
@@ -166,6 +168,29 @@ describe('middleware', function() {
       var middleWareFunc = middleware(errorClient, {logErrors: logFunc});
       errorClient.emit('error', new Error());
     });
+  });
+
+  describe('logout without a session', function() {
+    var req, res;
+    var client;
+    before(function() {
+      client = redis.createClient();
+    });
+
+    step('create mock', function(done) {
+      createMiddlewareMock(client, 'testuser', 'testsession', false, false, function(err, req2, res2) {
+        req = req2;
+        res = res2;
+        done(err);
+      });
+    });
+
+    step('logout', function(done) {
+      logOutHandler(req, res, function() {
+        done();
+      });
+    });
+
   });
 
   describe('login and logout error', function() {
