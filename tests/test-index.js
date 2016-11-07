@@ -30,7 +30,7 @@ var logOutHandler = function(req, res, next) {
 
 var createMiddlewareMock = function(client, username, session, options, logErrors, done) {
   var body = {username: username,
-      session: session};
+    session: session};
 
   if (options) {
     body.options = true;
