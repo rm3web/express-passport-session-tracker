@@ -1,5 +1,7 @@
 # Express Passport Session Tracker
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/rm3web/express-passport-session-tracker.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/rm3web/express-passport-session-tracker.svg?branch=master)](https://travis-ci.org/rm3web/express-passport-session-tracker)[![codecov](https://codecov.io/gh/rm3web/express-passport-session-tracker/branch/master/graph/badge.svg)](https://codecov.io/gh/rm3web/express-passport-session-tracker)[![dependencies Status](https://david-dm.org/rm3web/express-passport-session-tracker/status.svg)](https://david-dm.org/rm3web/express-passport-session-tracker)[![devDependencies Status](https://david-dm.org/rm3web/express-passport-session-tracker/dev-status.svg)](https://david-dm.org/rm3web/express-passport-session-tracker?type=dev)[![npm version](https://badge.fury.io/js/express-passport-session-tracker.svg)](https://www.npmjs.com/package/express-passport-session-tracker)
 
 If you follow the recommendations for [The OWASP Session Management Cheat Sheet](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet), you'll notice that there's a suggestion that users be able to observe all of their logged in sessions.
