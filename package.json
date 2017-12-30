@@ -33,16 +33,16 @@
   "license": "BSD-2-Clause",
   "devDependencies": {
     "chai": "^3.5.0",
-    "codecov": "^2.1.0",
-    "eslint": "^3.2.2",
+    "codecov": "^3.0.0",
+    "eslint": "^4.1.0",
     "eslint-plugin-no-only-tests": "^2.0.0",
     "eslint-plugin-node": "^4.0.0",
     "istanbul": "^0.4.4",
     "matcha": "^0.7.0",
-    "mocha": "^3.0.1",
+    "mocha": "^4.1.0",
     "mocha-steps": "^1.0.1",
     "node-mocks-http": "^1.5.2",
-    "redis-mock": "^0.17.0"
+    "redis-mock": "^0.18.0"
   },
   "dependencies": {}
 }
