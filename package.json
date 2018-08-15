@@ -42,7 +42,7 @@
     "mocha": "^4.1.0",
     "mocha-steps": "^1.0.1",
     "node-mocks-http": "^1.5.2",
-    "redis-mock": "^0.18.0"
+    "redis-mock": "^0.32.0"
   },
   "dependencies": {}
 }
